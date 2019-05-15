@@ -37,7 +37,7 @@ namespace XUnitRanking
 
 
         [Theory]
-        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 33, 0, 2, "CFR 33")]
+        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 29, 0, 2, "CFR 33")]
         public void TestUpdateRanking(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName,int thirdPoints,int firstScore, int secondScore, string expected)
         {
             Team firstTeam = new Team(firstName, firstPoints);
@@ -47,7 +47,7 @@ namespace XUnitRanking
             Ranking ranking = new Ranking(rankingTeams);
             Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
             ranking.UpdateRanking(game);
-            string actual = rankingTeams[1].PrintTeam();
+            string actual = rankingTeams[0].PrintTeam();
             //Team[] teams = game.UpdatePlayingTeamsPoints();
 
 

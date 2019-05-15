@@ -25,6 +25,10 @@ namespace RankingUpdate
         {
             return this.name == team.name;
         }
+        public bool CompareTeamsPoints(Team team)
+        {
+            return this.points > team.points;
+        }
 
     }
 }

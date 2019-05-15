@@ -23,10 +23,18 @@ namespace RankingUpdate
                     if (teams[i].CompareTeamsNames(playingTeams[j]))
                     {
                         teams[i] = playingTeams[j];
+                        if(i>0 && teams[i].CompareTeamsPoints(teams[i - 1])){
+                            Team t = teams[i];
+                            teams[i] = teams[i - 1];
+                            teams[i - 1] = t;
+
+                        }
                     }
                 }
             }
         }
+
+
 
         public void PrintAll()
         {
