@@ -34,6 +34,26 @@ namespace XUnitRanking
             Assert.Equal(expected, actual);
         }
 
+
+
+        [Theory]
+        [InlineData("FCSB", 32, "CFR", 30, "Dinamo", 33, 0, 2, "CFR 33")]
+        public void TestUpdateRanking(string firstName, int firstPoints, string secondName, int secondPoints, string thirdName,int thirdPoints,int firstScore, int secondScore, string expected)
+        {
+            Team firstTeam = new Team(firstName, firstPoints);
+            Team secondTeam = new Team(secondName, secondPoints);
+            Team thirdTeam = new Team(thirdName, thirdPoints);
+            Team[] rankingTeams = new Team[]{ firstTeam, secondTeam, thirdTeam };
+            Ranking ranking = new Ranking(rankingTeams);
+            Game game = new Game(firstTeam, secondTeam, firstScore, secondScore);
+            ranking.UpdateRanking(game);
+            string actual = rankingTeams[1].PrintTeam();
+            //Team[] teams = game.UpdatePlayingTeamsPoints();
+
+
+            Assert.Equal(expected, actual);
+        }
+
     }
     
 }
